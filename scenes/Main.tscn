@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Line2D.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 504.763, 30.0667 )
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 508.92, 558.887 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 360.741, 313.163 )
+player_index = 1
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 238.001, 306.228 )
+
+[node name="Line2D" type="Line2D" parent="."]
+script = ExtResource( 3 )
+player_path = NodePath("../Player")
+player2_path = NodePath("../Player2")
